@@ -7,7 +7,7 @@ class TestGetApi:
         res = reqUtils.ReqUtils().all_request(method = "get", url = url)
         print(res.text)
 
-    def test_get_baidu(self):
+    def test_get_baidu_false(self):
         url = "http://www.baidu.com"
         res = reqUtils.ReqUtils().all_request(method = "get", url = url)
         assert "123" == "456"

@@ -1,4 +1,4 @@
-from Utils import reqUtils
+from Utils import reqUtils,mysqlUtil
 
 class TestGetApi:
 
@@ -11,3 +11,10 @@ class TestGetApi:
         url = "http://www.baidu.com"
         res = reqUtils.ReqUtils().all_request(method = "get", url = url)
         assert "123" == "456"
+
+    def test_get_from_database(self):
+        data = mysqlUtil.MysqlUtil().get_data("test_case", 3)
+
+        for i in data:
+            res = reqUtils.ReqUtils().all_request(method = i[2],url = i[1])
+            print(i[1],"-----------------------")

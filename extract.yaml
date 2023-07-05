@@ -1,0 +1,19 @@
+- id: 12301
+  data:
+      school: xinp
+      student: young
+- id: 12302
+  data:
+      school: anhuicaijing
+      student: yao
+- id: 12303
+  data:
+    school: anhuicaijing
+    student: yao
+- data:
+    school: pingdain
+    student: yao
+- data:
+    school: pingdain
+    student: yao
+  id: 12304

@@ -1,16 +1,9 @@
-import pytest
+from xToolkit import xfile
+from Utils import reqUtils
 
-from Utils import mysqlUtil, reqUtils
-
-@pytest.mark.parametrize('tmethod,turl',list(mysqlUtil.MysqlUtil().get_requests_form_database("test_case","method","url", 2)))
-def get_from_database(method,url):
-    print(mysqlUtil.MysqlUtil().get_requests_form_database("test_case","method","url", 2))
-    res = reqUtils.ReqUtils().all_request(method = method, url = url)
-    assert res.status_code == 200
-
-# def get_data():
-#     res = mysqlUtil.MysqlUtil().get_requests_form_database("test_case","method","url",4)
-#     print(list(res),type(res))
-
-if __name__ == '__main__':
-    get_from_database()
+testCaseList = xfile.read("./Data/excTestCase.xls").excel_to_dict()
+print(testCaseList)
+for i in testCaseList:
+    print(type(i["method"]),i["method"],type(i["url"]),i["url"])
+    res = reqUtils.ReqUtils().all_request(url = i["url"],method = i["method"])
+    print(res.status_code)

@@ -6,6 +6,7 @@ class MysqlUtil:
                     user='root',
                     password='123456',
                     database='spj_data')
+
     cursor = db.cursor()
 
 
